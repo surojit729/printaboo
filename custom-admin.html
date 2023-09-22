@@ -17,18 +17,17 @@
         <link rel="stylesheet"
             href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.3.0/swiper-bundle.css" />
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/css/dataTables.bootstrap4.css" />
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
 
         <!-- Custom styles for this template -->
         <link href="assets/css/custom.css" rel="stylesheet">
         <link href="assets/css/responsive.css" rel="stylesheet">
     </head>
 
-    <body>
+    <body class="admin-body-wrapper">
         <!-- admin-header -->
-        <header class="admin-header position-fixed d-none">
-            <div class="container">
+        <header class="admin-header position-fixed">
+            <div class="container p-0">
                 <div class="holder">
                     <div class="header-data-left">
                         <!-- header-title -->
@@ -41,7 +40,8 @@
                             <form>
                                 <div class="holder">
                                     <div class="input-field">
-                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control"
+                                            placeholder="Search orders by customer, order number...">
                                     </div>
                                     <div class="submit-field">
                                         <button type="submit">
@@ -64,7 +64,7 @@
                                 </div>
                             </div>
                             <div class="action-item">
-                                <div class="help-btn">
+                                <div class="download-btn">
                                     <a href="">
                                         <img src="assets/images/header-download-icon.svg" alt="">
                                     </a>
@@ -111,8 +111,8 @@
                         </div>
                     </div>
                     <!-- logo -->
-                    <!-- balance -->
-                    <div class="available-balance-info">
+                    <!-- wallet-balance -->
+                    <div class="wallet-balance-info">
                         <div class="d-flex">
                             <figure>
                                 <img src="assets/images/wallet-icon.svg" alt="">
@@ -120,7 +120,7 @@
                             <p>Available Credits <span>15.7</span></p>
                         </div>
                     </div>
-                    <!-- balance -->
+                    <!-- wallet-balance -->
                     <!-- navigation -->
                     <div class="sidebar-menu-outer">
                         <nav class="navbar">
@@ -230,10 +230,1456 @@
                 </div>
             </div>
             <!-- sidebar -->
+            <!-- page-content -->
+            <div class="page-content-wrapper" id="content">
+                <div class="container-fluid">
+                    <!-- orders-area -->
+                    <div class="orders-wrapper">
+                        <div class="page-content-data-header">
+                            <!-- tab-menu -->
+                            <div class="tab-menu">
+                                <nav>
+                                    <div class="nav nav-tabs">
+                                        <button class="nav-link active" data-bs-toggle="tab"
+                                            data-bs-target="#totalOrders">
+                                            All <span class="order-count">(123)</span>
+                                        </button>
+                                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#pendignOrders">
+                                            Pending
+                                        </button>
+                                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#acceptedOrders"
+                                            type="button">
+                                            Accepted
+                                        </button>
+                                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#shippedOrders">
+                                            Shipped
+                                        </button>
+                                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#deliveredOrders">
+                                            Delivered <span class="delivered-count">(67)</span>
+                                        </button>
+                                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#othersOrders"
+                                            type="button">
+                                            Others
+                                        </button>
+                                    </div>
+                                </nav>
+                            </div>
+                            <!-- tab-menu -->
+                            <div class="page-content-data-header-action-area">
+                                <div class="holder d-flex align-items-center">
+                                    <div class="action-item">
+                                        <a href="javascript:void(0);" class="order-download-btn">
+                                            <img src="assets/images/order-download.svg" alt="">
+                                        </a>
+                                    </div>
+                                    <div class="action-item">
+                                        <a href="javascript:void(0);" class="btn btn-primary order-create-btn">
+                                            Create Order
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="page-content-data-wrapper">
 
-            <div id="content">
-                <!-- Page content goes here -->
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active" id="totalOrders">
+                                    <div class="data-table-wrapper">
+                                        <table id="example" class="display nowrap" style="width:100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>Order ID</th>
+                                                    <th>Date</th>
+                                                    <th>Customer</th>
+                                                    <th>Quantity</th>
+                                                    <th>Payment</th>
+                                                    <th>Status</th>
+                                                    <th>Amount</th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div class="data-table-row-selector d-flex align-items-center">
+                                                            <div class="order-information-select-box">
+                                                                <div class="custom-checkbox-outer">
+                                                                    <label class="custom-checkbox-holder">
+                                                                        <input type="checkbox" class="custom-checkbox">
+                                                                        <span></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="order-id">
+                                                                #10428869
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-placed-date">
+                                                            19 Aug 2023, 1:08 PM
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-customer-name">
+                                                            Sreehari Swetha
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-quantity">
+                                                            2
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-payment-status">
+                                                            Paid
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-delivery-status">
+                                                            Delivered
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-price">
+                                                            ₹ 25.00
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="data-table-row-selector d-flex align-items-center">
+                                                            <div class="order-information-select-box">
+                                                                <div class="custom-checkbox-outer">
+                                                                    <label class="custom-checkbox-holder">
+                                                                        <input type="checkbox" class="custom-checkbox">
+                                                                        <span></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="order-id">
+                                                                #10428869
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-placed-date">
+                                                            19 Aug 2023, 1:08 PM
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-customer-name">
+                                                            Sreehari Swetha
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-quantity">
+                                                            2
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-payment-status">
+                                                            Paid
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-delivery-status">
+                                                            Delivered
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-price">
+                                                            ₹ 25.00
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="data-table-row-selector d-flex align-items-center">
+                                                            <div class="order-information-select-box">
+                                                                <div class="custom-checkbox-outer">
+                                                                    <label class="custom-checkbox-holder">
+                                                                        <input type="checkbox" class="custom-checkbox">
+                                                                        <span></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="order-id">
+                                                                #10428869
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-placed-date">
+                                                            19 Aug 2023, 1:08 PM
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-customer-name">
+                                                            Sreehari Swetha
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-quantity">
+                                                            2
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-payment-status">
+                                                            Paid
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-delivery-status">
+                                                            Delivered
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-price">
+                                                            ₹ 25.00
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="data-table-row-selector d-flex align-items-center">
+                                                            <div class="order-information-select-box">
+                                                                <div class="custom-checkbox-outer">
+                                                                    <label class="custom-checkbox-holder">
+                                                                        <input type="checkbox" class="custom-checkbox">
+                                                                        <span></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="order-id">
+                                                                #10428869
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-placed-date">
+                                                            19 Aug 2023, 1:08 PM
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-customer-name">
+                                                            Sreehari Swetha
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-quantity">
+                                                            2
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-payment-status">
+                                                            Paid
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-delivery-status">
+                                                            Delivered
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-price">
+                                                            ₹ 25.00
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="data-table-row-selector d-flex align-items-center">
+                                                            <div class="order-information-select-box">
+                                                                <div class="custom-checkbox-outer">
+                                                                    <label class="custom-checkbox-holder">
+                                                                        <input type="checkbox" class="custom-checkbox">
+                                                                        <span></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="order-id">
+                                                                #10428869
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-placed-date">
+                                                            19 Aug 2023, 1:08 PM
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-customer-name">
+                                                            Sreehari Swetha
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-quantity">
+                                                            2
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-payment-status">
+                                                            Paid
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-delivery-status">
+                                                            Delivered
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-price">
+                                                            ₹ 25.00
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="data-table-row-selector d-flex align-items-center">
+                                                            <div class="order-information-select-box">
+                                                                <div class="custom-checkbox-outer">
+                                                                    <label class="custom-checkbox-holder">
+                                                                        <input type="checkbox" class="custom-checkbox">
+                                                                        <span></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="order-id">
+                                                                #10428869
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-placed-date">
+                                                            19 Aug 2023, 1:08 PM
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-customer-name">
+                                                            Sreehari Swetha
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-quantity">
+                                                            2
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-payment-status">
+                                                            Paid
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-delivery-status">
+                                                            Delivered
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-price">
+                                                            ₹ 25.00
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="data-table-row-selector d-flex align-items-center">
+                                                            <div class="order-information-select-box">
+                                                                <div class="custom-checkbox-outer">
+                                                                    <label class="custom-checkbox-holder">
+                                                                        <input type="checkbox" class="custom-checkbox">
+                                                                        <span></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="order-id">
+                                                                #10428869
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-placed-date">
+                                                            19 Aug 2023, 1:08 PM
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-customer-name">
+                                                            Sreehari Swetha
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-quantity">
+                                                            2
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-payment-status">
+                                                            Paid
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-delivery-status">
+                                                            Delivered
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-price">
+                                                            ₹ 25.00
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="data-table-row-selector d-flex align-items-center">
+                                                            <div class="order-information-select-box">
+                                                                <div class="custom-checkbox-outer">
+                                                                    <label class="custom-checkbox-holder">
+                                                                        <input type="checkbox" class="custom-checkbox">
+                                                                        <span></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="order-id">
+                                                                #10428869
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-placed-date">
+                                                            19 Aug 2023, 1:08 PM
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-customer-name">
+                                                            Sreehari Swetha
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-quantity">
+                                                            2
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-payment-status">
+                                                            Paid
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-delivery-status">
+                                                            Delivered
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-price">
+                                                            ₹ 25.00
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="data-table-row-selector d-flex align-items-center">
+                                                            <div class="order-information-select-box">
+                                                                <div class="custom-checkbox-outer">
+                                                                    <label class="custom-checkbox-holder">
+                                                                        <input type="checkbox" class="custom-checkbox">
+                                                                        <span></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="order-id">
+                                                                #10428869
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-placed-date">
+                                                            19 Aug 2023, 1:08 PM
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-customer-name">
+                                                            Sreehari Swetha
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-quantity">
+                                                            2
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-payment-status">
+                                                            Paid
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-delivery-status">
+                                                            Delivered
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-price">
+                                                            ₹ 25.00
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="data-table-row-selector d-flex align-items-center">
+                                                            <div class="order-information-select-box">
+                                                                <div class="custom-checkbox-outer">
+                                                                    <label class="custom-checkbox-holder">
+                                                                        <input type="checkbox" class="custom-checkbox">
+                                                                        <span></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="order-id">
+                                                                #10428869
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-placed-date">
+                                                            19 Aug 2023, 1:08 PM
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-customer-name">
+                                                            Sreehari Swetha
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-quantity">
+                                                            2
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-payment-status">
+                                                            Paid
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-delivery-status">
+                                                            Delivered
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-price">
+                                                            ₹ 25.00
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="data-table-row-selector d-flex align-items-center">
+                                                            <div class="order-information-select-box">
+                                                                <div class="custom-checkbox-outer">
+                                                                    <label class="custom-checkbox-holder">
+                                                                        <input type="checkbox" class="custom-checkbox">
+                                                                        <span></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="order-id">
+                                                                #10428869
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-placed-date">
+                                                            19 Aug 2023, 1:08 PM
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-customer-name">
+                                                            Sreehari Swetha
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-quantity">
+                                                            2
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-payment-status">
+                                                            Paid
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-delivery-status">
+                                                            Delivered
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-price">
+                                                            ₹ 25.00
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="data-table-row-selector d-flex align-items-center">
+                                                            <div class="order-information-select-box">
+                                                                <div class="custom-checkbox-outer">
+                                                                    <label class="custom-checkbox-holder">
+                                                                        <input type="checkbox" class="custom-checkbox">
+                                                                        <span></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="order-id">
+                                                                #10428869
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-placed-date">
+                                                            19 Aug 2023, 1:08 PM
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-customer-name">
+                                                            Sreehari Swetha
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-quantity">
+                                                            2
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-payment-status">
+                                                            Paid
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-delivery-status">
+                                                            Delivered
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-price">
+                                                            ₹ 25.00
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="data-table-row-selector d-flex align-items-center">
+                                                            <div class="order-information-select-box">
+                                                                <div class="custom-checkbox-outer">
+                                                                    <label class="custom-checkbox-holder">
+                                                                        <input type="checkbox" class="custom-checkbox">
+                                                                        <span></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="order-id">
+                                                                #10428869
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-placed-date">
+                                                            19 Aug 2023, 1:08 PM
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-customer-name">
+                                                            Sreehari Swetha
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-quantity">
+                                                            2
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-payment-status">
+                                                            Paid
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-delivery-status">
+                                                            Delivered
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-price">
+                                                            ₹ 25.00
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="data-table-row-selector d-flex align-items-center">
+                                                            <div class="order-information-select-box">
+                                                                <div class="custom-checkbox-outer">
+                                                                    <label class="custom-checkbox-holder">
+                                                                        <input type="checkbox" class="custom-checkbox">
+                                                                        <span></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="order-id">
+                                                                #10428869
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-placed-date">
+                                                            19 Aug 2023, 1:08 PM
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-customer-name">
+                                                            Sreehari Swetha
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-quantity">
+                                                            2
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-payment-status">
+                                                            Paid
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-delivery-status">
+                                                            Delivered
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-price">
+                                                            ₹ 25.00
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="data-table-row-selector d-flex align-items-center">
+                                                            <div class="order-information-select-box">
+                                                                <div class="custom-checkbox-outer">
+                                                                    <label class="custom-checkbox-holder">
+                                                                        <input type="checkbox" class="custom-checkbox">
+                                                                        <span></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="order-id">
+                                                                #10428869
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-placed-date">
+                                                            19 Aug 2023, 1:08 PM
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-customer-name">
+                                                            Sreehari Swetha
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-quantity">
+                                                            2
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-payment-status">
+                                                            Paid
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-delivery-status">
+                                                            Delivered
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-price">
+                                                            ₹ 25.00
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="data-table-row-selector d-flex align-items-center">
+                                                            <div class="order-information-select-box">
+                                                                <div class="custom-checkbox-outer">
+                                                                    <label class="custom-checkbox-holder">
+                                                                        <input type="checkbox" class="custom-checkbox">
+                                                                        <span></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="order-id">
+                                                                #10428869
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-placed-date">
+                                                            19 Aug 2023, 1:08 PM
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-customer-name">
+                                                            Sreehari Swetha
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-quantity">
+                                                            2
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-payment-status">
+                                                            Paid
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-delivery-status">
+                                                            Delivered
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-price">
+                                                            ₹ 25.00
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="data-table-row-selector d-flex align-items-center">
+                                                            <div class="order-information-select-box">
+                                                                <div class="custom-checkbox-outer">
+                                                                    <label class="custom-checkbox-holder">
+                                                                        <input type="checkbox" class="custom-checkbox">
+                                                                        <span></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="order-id">
+                                                                #10428869
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-placed-date">
+                                                            19 Aug 2023, 1:08 PM
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-customer-name">
+                                                            Sreehari Swetha
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-quantity">
+                                                            2
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-payment-status">
+                                                            Paid
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-delivery-status">
+                                                            Delivered
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-price">
+                                                            ₹ 25.00
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="data-table-row-selector d-flex align-items-center">
+                                                            <div class="order-information-select-box">
+                                                                <div class="custom-checkbox-outer">
+                                                                    <label class="custom-checkbox-holder">
+                                                                        <input type="checkbox" class="custom-checkbox">
+                                                                        <span></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="order-id">
+                                                                #10428869
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-placed-date">
+                                                            19 Aug 2023, 1:08 PM
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-customer-name">
+                                                            Sreehari Swetha
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-quantity">
+                                                            2
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-payment-status">
+                                                            Paid
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-delivery-status">
+                                                            Delivered
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-price">
+                                                            ₹ 25.00
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="data-table-row-selector d-flex align-items-center">
+                                                            <div class="order-information-select-box">
+                                                                <div class="custom-checkbox-outer">
+                                                                    <label class="custom-checkbox-holder">
+                                                                        <input type="checkbox" class="custom-checkbox">
+                                                                        <span></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="order-id">
+                                                                #10428869
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-placed-date">
+                                                            19 Aug 2023, 1:08 PM
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-customer-name">
+                                                            Sreehari Swetha
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-quantity">
+                                                            2
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-payment-status">
+                                                            Paid
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-delivery-status">
+                                                            Delivered
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-price">
+                                                            ₹ 25.00
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="data-table-row-selector d-flex align-items-center">
+                                                            <div class="order-information-select-box">
+                                                                <div class="custom-checkbox-outer">
+                                                                    <label class="custom-checkbox-holder">
+                                                                        <input type="checkbox" class="custom-checkbox">
+                                                                        <span></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="order-id">
+                                                                #10428869
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-placed-date">
+                                                            19 Aug 2023, 1:08 PM
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-customer-name">
+                                                            Sreehari Swetha
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-quantity">
+                                                            2
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-payment-status">
+                                                            Paid
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-delivery-status">
+                                                            Delivered
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-price">
+                                                            ₹ 25.00
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="data-table-row-selector d-flex align-items-center">
+                                                            <div class="order-information-select-box">
+                                                                <div class="custom-checkbox-outer">
+                                                                    <label class="custom-checkbox-holder">
+                                                                        <input type="checkbox" class="custom-checkbox">
+                                                                        <span></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="order-id">
+                                                                #10428869
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-placed-date">
+                                                            19 Aug 2023, 1:08 PM
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-customer-name">
+                                                            Sreehari Swetha
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-quantity">
+                                                            2
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-payment-status">
+                                                            Paid
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-delivery-status">
+                                                            Delivered
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-price">
+                                                            ₹ 25.00
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="data-table-row-selector d-flex align-items-center">
+                                                            <div class="order-information-select-box">
+                                                                <div class="custom-checkbox-outer">
+                                                                    <label class="custom-checkbox-holder">
+                                                                        <input type="checkbox" class="custom-checkbox">
+                                                                        <span></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="order-id">
+                                                                #10428869
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-placed-date">
+                                                            19 Aug 2023, 1:08 PM
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-customer-name">
+                                                            Sreehari Swetha
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-quantity">
+                                                            2
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-payment-status">
+                                                            Paid
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-delivery-status">
+                                                            Delivered
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-price">
+                                                            ₹ 25.00
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="data-table-row-selector d-flex align-items-center">
+                                                            <div class="order-information-select-box">
+                                                                <div class="custom-checkbox-outer">
+                                                                    <label class="custom-checkbox-holder">
+                                                                        <input type="checkbox" class="custom-checkbox">
+                                                                        <span></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="order-id">
+                                                                #10428869
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-placed-date">
+                                                            19 Aug 2023, 1:08 PM
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-customer-name">
+                                                            Sreehari Swetha
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-quantity">
+                                                            2
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-payment-status">
+                                                            Paid
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-delivery-status">
+                                                            Delivered
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-price">
+                                                            ₹ 25.00
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="data-table-row-selector d-flex align-items-center">
+                                                            <div class="order-information-select-box">
+                                                                <div class="custom-checkbox-outer">
+                                                                    <label class="custom-checkbox-holder">
+                                                                        <input type="checkbox" class="custom-checkbox">
+                                                                        <span></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="order-id">
+                                                                #10428869
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-placed-date">
+                                                            19 Aug 2023, 1:08 PM
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-customer-name">
+                                                            Sreehari Swetha
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-quantity">
+                                                            2
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-payment-status">
+                                                            Paid
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-delivery-status">
+                                                            Delivered
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-price">
+                                                            ₹ 25.00
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="data-table-row-selector d-flex align-items-center">
+                                                            <div class="order-information-select-box">
+                                                                <div class="custom-checkbox-outer">
+                                                                    <label class="custom-checkbox-holder">
+                                                                        <input type="checkbox" class="custom-checkbox">
+                                                                        <span></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="order-id">
+                                                                #10428869
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-placed-date">
+                                                            19 Aug 2023, 1:08 PM
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-customer-name">
+                                                            Sreehari Swetha
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-quantity">
+                                                            2
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-payment-status">
+                                                            Paid
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-delivery-status">
+                                                            Delivered
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-price">
+                                                            ₹ 25.00
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="data-table-row-selector d-flex align-items-center">
+                                                            <div class="order-information-select-box">
+                                                                <div class="custom-checkbox-outer">
+                                                                    <label class="custom-checkbox-holder">
+                                                                        <input type="checkbox" class="custom-checkbox">
+                                                                        <span></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="order-id">
+                                                                #10428869
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-placed-date">
+                                                            19 Aug 2023, 1:08 PM
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-customer-name">
+                                                            Sreehari Swetha
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-quantity">
+                                                            2
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-payment-status">
+                                                            Paid
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-delivery-status">
+                                                            Delivered
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-price">
+                                                            ₹ 25.00
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="data-table-row-selector d-flex align-items-center">
+                                                            <div class="order-information-select-box">
+                                                                <div class="custom-checkbox-outer">
+                                                                    <label class="custom-checkbox-holder">
+                                                                        <input type="checkbox" class="custom-checkbox">
+                                                                        <span></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="order-id">
+                                                                #10428869
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-placed-date">
+                                                            19 Aug 2023, 1:08 PM
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-customer-name">
+                                                            Sreehari Swetha
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-quantity">
+                                                            2
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-payment-status">
+                                                            Paid
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-delivery-status">
+                                                            Delivered
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-price">
+                                                            ₹ 25.00
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="data-table-row-selector d-flex align-items-center">
+                                                            <div class="order-information-select-box">
+                                                                <div class="custom-checkbox-outer">
+                                                                    <label class="custom-checkbox-holder">
+                                                                        <input type="checkbox" class="custom-checkbox">
+                                                                        <span></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="order-id">
+                                                                #10428869
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-placed-date">
+                                                            19 Aug 2023, 1:08 PM
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-customer-name">
+                                                            Sreehari Swetha
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-quantity">
+                                                            2
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-payment-status">
+                                                            Paid
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-delivery-status">
+                                                            Delivered
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-price">
+                                                            ₹ 25.00
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="data-table-row-selector d-flex align-items-center">
+                                                            <div class="order-information-select-box">
+                                                                <div class="custom-checkbox-outer">
+                                                                    <label class="custom-checkbox-holder">
+                                                                        <input type="checkbox" class="custom-checkbox">
+                                                                        <span></span>
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="order-id">
+                                                                #10428869
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-placed-date">
+                                                            19 Aug 2023, 1:08 PM
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-customer-name">
+                                                            Sreehari Swetha
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-quantity">
+                                                            2
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-payment-status">
+                                                            Paid
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-delivery-status">
+                                                            Delivered
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="order-price">
+                                                            ₹ 25.00
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="pendignOrders">1...</div>
+                                <div class="tab-pane fade" id="acceptedOrders">2...</div>
+                                <div class="tab-pane fade" id="shippedOrders">2...</div>
+                                <div class="tab-pane fade" id="deliveredOrders">2...</div>
+                                <div class="tab-pane fade" id="othersOrders">2...</div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- orders-area -->
+
+                </div>
             </div>
+            <!-- page-content -->
         </div>
         <!-- jquery-js -->
         <script src="assets/js/jquery-3.2.1.min.js"></script>
@@ -246,7 +1692,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.3.0/swiper-bundle.min.js"></script>
         <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.16/js/dataTables.bootstrap4.js"></script>
+        <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
         <!-- custom-js -->
         <script src="assets/js/custom.js"></script>
     </body>
