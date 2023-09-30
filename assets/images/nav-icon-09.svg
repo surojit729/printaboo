@@ -1,0 +1,8 @@
+<svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g id="Password">
+        <path id="Stroke 1" fill-rule="evenodd" clip-rule="evenodd" d="M12.611 0.791748H5.38685C2.86935 0.791748 1.29102 2.57425 1.29102 5.09675V11.9034C1.29102 14.4259 2.86185 16.2084 5.38685 16.2084H12.6102C15.136 16.2084 16.7077 14.4259 16.7077 11.9034V5.09675C16.7077 2.57425 15.136 0.791748 12.611 0.791748Z" stroke="#03AEB9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        <path id="Stroke 3" fill-rule="evenodd" clip-rule="evenodd" d="M7.90698 8.50006C7.90698 9.35256 7.21615 10.0434 6.36365 10.0434C5.51115 10.0434 4.82031 9.35256 4.82031 8.50006C4.82031 7.64756 5.51115 6.95673 6.36365 6.95673H6.36615C7.21698 6.95756 7.90698 7.64839 7.90698 8.50006Z" stroke="#03AEB9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        <path id="Stroke 5" d="M7.91016 8.50006H13.1752V10.0434" stroke="#03AEB9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        <path id="Stroke 7" d="M10.8171 10.0435V8.50018" stroke="#03AEB9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+</svg>

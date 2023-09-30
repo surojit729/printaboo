@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+      <meta name="author" content="">
+      <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
+      <link rel="icon" href="assets/images/favicon.png" type="image/x-icon">
+      <title>Printaboo</title>
+      <!-- Bootstrap-core-CSS -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+      <link rel="stylesheet"
+         href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/css/bootstrap-select.min.css">
+      <!-- plugins-CSS -->
+      <link rel="stylesheet"
+         href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.3.0/swiper-bundle.css" />
+      <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
+      <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+      <!-- Custom styles for this template -->
+      <link href="assets/css/custom.css" rel="stylesheet">
+      <link href="assets/css/responsive.css" rel="stylesheet">
+   </head>
+
+   <body class="admin-body-wrapper">
+      <!-- admin-header -->
+      <header class="admin-header position-fixed">
+         <div class="container p-0">
+            <div class="holder">
+               <div class="header-data-left">
+                  <!-- header-title -->
+                  <div class="header-title-outer">
+                     <p>Discount Coupons</p>
+                     <p class="discount-category">Flat Discount</p>
+                  </div>
+                  <!-- header-title -->
+               </div>
+               <div class="header-data-right">
+                  <div class="update-coupon">
+                     <div class="help-btn">
+                        <a href="javascript:void(0);" class="btn btn-primary updateCouponBtn">
+                           Update Coupon
+                        </a>
+                     </div>
+                  </div>
+                  <!-- header-right-action-btn -->
+                  <div class="header-right-action-btn-outer">
+
+                     <div class="action-item">
+                        <div class="help-btn">
+                           <a href="">
+                              <img src="assets/images/header-help-icon.svg" alt="">
+                           </a>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- header-right-action-btn -->
+                  <!-- login-info -->
+                  <div class="user-login-info-outer">
+                     <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                           <div class="holder">
+                              <div class="user-pic">
+                                 <img src="assets/images/admin-user-pic.svg" alt="">
+                              </div>
+                              <span>debasischakrabo</span>
+                           </div>
+                        </button>
+                        <ul class="dropdown-menu">
+                           <li><a class="dropdown-item" href="#">Action</a></li>
+                           <li><a class="dropdown-item" href="#">Another action</a></li>
+                           <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                     </div>
+                  </div>
+                  <!-- login-info -->
+               </div>
+            </div>
+         </div>
+      </header>
+      <!-- admin-header -->
+      <div class="main-wrapper">
+         <!-- sidebar -->
+         <site-sidebar></site-sidebar>
+         <!-- sidebar -->
+         <!-- page-content -->
+         <div class="page-content-wrapper" id="content">
+            <div class="container-fluid">
+               <div class="page-content-data-wrapper">
+                  <!-- add-coupn -->
+                  <div class="add-product-wrapper add-coupn-wrapper">
+                     <div class="row">
+                        <div class="col">
+                           <div class="add-product-form-wrapper">
+                              <form>
+                                 <div class="accordion addProductAccordion" id="addProductAccordion">
+                                    <!-- add-coupon-accordion-row -->
+                                    <div class="accordion-item" id="couponOverview">
+                                       <h2 class="accordion-header">
+                                          <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                             data-bs-target="#collapseOne">
+                                             Coupon overview
+                                          </button>
+                                       </h2>
+                                       <div id="collapseOne" class="accordion-collapse collapse show"
+                                          data-bs-parent="#addProductAccordion">
+                                          <div class="accordion-body">
+                                             <div class="add-product-form-holder">
+                                                <div class="add-product-form-row">
+                                                   <div class="holder">
+                                                      <div class="form-field-outer">
+                                                         <div class="form-row row">
+                                                            <!-- form-input-col -->
+                                                            <div class="col-12">
+                                                               <div class="row coupon-overview-row">
+                                                                  <div class="col-6">
+                                                                     <div class="input-field coupon-name-field">
+                                                                        <label> Coupon code
+                                                                           <sup>*</sup></label>
+                                                                        <div class="input-holder">
+                                                                           <input type="text" class="form-control"
+                                                                              value="WELCOME">
+                                                                        </div>
+                                                                     </div>
+                                                                  </div>
+                                                                  <div class="col-6">
+                                                                     <div class="input-field">
+                                                                        <div
+                                                                           class="label-holder d-flex align-items-center  justify-content-between">
+                                                                           <label> Category Image
+                                                                              <sup>*</sup></label>
+                                                                           <div class="info-icon">
+                                                                              <span data-bs-toggle="tooltip"
+                                                                                 data-bs-placement="top"
+                                                                                 data-bs-title="Information">
+                                                                                 <i class="las la-question-circle"></i>
+                                                                              </span>
+                                                                           </div>
+                                                                        </div>
+                                                                        <div class="input-holder">
+                                                                           <div
+                                                                              class="product-category-select-field select-field">
+                                                                              <select class="selectpicker"
+                                                                                 title="Select">
+                                                                                 <option selected>
+                                                                                    Only once
+                                                                                 </option>
+                                                                                 <option>
+                                                                                    Option Name
+                                                                                 </option>
+                                                                                 <option>
+                                                                                    Option Name
+                                                                                 </option>
+                                                                                 <option>
+                                                                                    Option Name
+                                                                                 </option>
+                                                                              </select>
+                                                                           </div>
+                                                                        </div>
+                                                                     </div>
+                                                                  </div>
+                                                               </div>
+                                                            </div>
+                                                            <!-- form-input-col -->
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <!-- add-coupon-accordion-row -->
+                                    <!-- add-coupon-accordion-row -->
+                                    <div class="accordion-item" id="couponDetails">
+                                       <h2 class="accordion-header">
+                                          <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                             data-bs-target="#collapseTwo">
+                                             Coupon details
+                                          </button>
+                                       </h2>
+                                       <div id="collapseTwo" class="accordion-collapse collapse show"
+                                          data-bs-parent="#addProductAccordion">
+                                          <div class="accordion-body">
+                                             <div class="add-product-form-holder">
+                                                <div class="add-product-form-row">
+                                                   <div class="holder">
+                                                      <div class="form-field-outer">
+                                                         <div class="form-row row">
+                                                            <!-- form-input-col -->
+                                                            <div class="col-12">
+                                                               <div class="input-field coupon-condition-field">
+                                                                  <div class="title">
+                                                                     <p> Minimum Order Condition</p>
+                                                                  </div>
+                                                                  <!-- order-condition-checkbox -->
+                                                                  <div
+                                                                     class="coupon-condition-checkbox-outer custom-checkbox-outer d-flex">
+                                                                     <label class="custom-checkbox-holder">
+                                                                        <input type="radio" class="custom-checkbox"
+                                                                           id="orderValue" name="order-condition"
+                                                                           checked>
+                                                                        <span></span>
+                                                                        <em>Order value</em>
+                                                                     </label>
+                                                                     <label class="custom-checkbox-holder">
+                                                                        <input type="radio" class="custom-checkbox"
+                                                                           id="orderQuantity" name="order-condition">
+                                                                        <span></span>
+                                                                        <em>Order quantity</em>
+                                                                     </label>
+                                                                  </div>
+                                                                  <!-- order-condition-checkbox -->
+                                                                  <div class="input-field order-value-input-field"
+                                                                     id="order-value">
+                                                                     <label>Minimum order value <sup>*</sup></label>
+                                                                     <div class="input-holder has-icon">
+                                                                        <input type="number" class="form-control"
+                                                                           value="150">
+                                                                        <span class="input-append-icon"><i
+                                                                              class="las la-rupee-sign"></i></span>
+                                                                     </div>
+                                                                  </div>
+                                                                  <div class="input-field order-value-input-field"
+                                                                     id="order-quantity">
+                                                                     <label>Minimum order quantity <sup>*</sup></label>
+                                                                     <div class="input-holder">
+                                                                        <input type="number" class="form-control"
+                                                                           value="10">
+                                                                     </div>
+                                                                  </div>
+                                                               </div>
+                                                            </div>
+                                                            <!-- form-input-col -->
+                                                            <!-- form-input-col -->
+                                                            <div class="col-12">
+                                                               <div class="input-field">
+                                                                  <label>Discount amount <sup>*</sup></label>
+                                                                  <div class="input-holder has-icon">
+                                                                     <input type="number" class="form-control">
+                                                                     <span class="input-append-icon"><i
+                                                                           class="las la-rupee-sign"></i></span>
+                                                                  </div>
+                                                                  <div class="input-field-notes">
+                                                                     <p>₹10.00 off on specific products above ₹150.</p>
+                                                                  </div>
+                                                               </div>
+                                                            </div>
+                                                            <!-- form-input-col -->
+                                                            <!-- form-input-col -->
+                                                            <div class="col-12">
+                                                               <div class="input-field">
+                                                                  <label>Apply coupon on</label>
+                                                                  <div class="input-holder">
+                                                                     <div
+                                                                        class="product-category-select-field select-field">
+                                                                        <select class="selectpicker"
+                                                                           title="Specific products">
+                                                                           <option>
+                                                                              Option Name
+                                                                           </option>
+                                                                           <option>
+                                                                              Option Name
+                                                                           </option>
+                                                                           <option>
+                                                                              Option Name
+                                                                           </option>
+                                                                        </select>
+                                                                     </div>
+                                                                  </div>
+                                                               </div>
+                                                            </div>
+                                                            <!-- form-input-col -->
+                                                            <!-- form-input-col -->
+                                                            <div class="col-12">
+                                                               <div class="input-field">
+                                                                  <label>Apply coupon on</label>
+                                                                  <div class="input-holder">
+                                                                     <div
+                                                                        class="product-category-select-field select-field">
+                                                                        <select class="selectpicker" title="Select">
+                                                                           <option selected>
+                                                                              10,000+ Printable Kids (2 to 6 Years)
+                                                                              Worksheet Bundle
+                                                                           </option>
+                                                                           <option>
+                                                                              Option Name
+                                                                           </option>
+                                                                           <option>
+                                                                              Option Name
+                                                                           </option>
+                                                                        </select>
+                                                                     </div>
+                                                                  </div>
+                                                               </div>
+                                                            </div>
+                                                            <!-- form-input-col -->
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <!-- add-coupon-accordion-row -->
+                                    <!-- add-coupon-accordion-row -->
+                                    <div class="accordion-item" id="couponFunctionality">
+                                       <h2 class="accordion-header">
+                                          <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                             data-bs-target="#collapseThree">
+                                             Coupon functionality
+                                          </button>
+                                       </h2>
+                                       <div id="collapseThree" class="accordion-collapse collapse show"
+                                          data-bs-parent="#addProductAccordion">
+                                          <div class="accordion-body">
+                                             <div class="add-product-form-holder">
+                                                <div class="add-product-form-row">
+                                                   <div class="holder">
+                                                      <div class="form-field-outer">
+                                                         <div class="form-row row">
+                                                            <!-- form-input-col -->
+                                                            <div class="col-12">
+                                                               <div class="coupon-functionality-list-outer">
+                                                                  <!-- item -->
+                                                                  <div
+                                                                     class="list-item d-flex justify-content-between align-items-center">
+                                                                     <div class="label d-flex">
+                                                                        <p>Show coupon to customer</p>
+                                                                        <span data-bs-toggle="tooltip"
+                                                                           data-bs-placement="top"
+                                                                           data-bs-title="Information">
+                                                                           <i class="las la-question-circle"></i>
+                                                                        </span>
+                                                                     </div>
+                                                                     <div class="coupon-functionality-toggle">
+                                                                        <div class="custom-switch-btn">
+                                                                           <label class="toggle">
+                                                                              <input class="toggle-checkbox"
+                                                                                 type="checkbox" checked="">
+                                                                              <div class="toggle-switch"></div>
+                                                                           </label>
+                                                                        </div>
+                                                                     </div>
+                                                                  </div>
+                                                                  <!-- item -->
+                                                                  <!-- item -->
+                                                                  <div
+                                                                     class="list-item d-flex justify-content-between align-items-center">
+                                                                     <div class="label d-flex">
+                                                                        <p>Valid only for online payments</p>
+                                                                        <span data-bs-toggle="tooltip"
+                                                                           data-bs-placement="top"
+                                                                           data-bs-title="Information">
+                                                                           <i class="las la-question-circle"></i>
+                                                                        </span>
+                                                                     </div>
+                                                                     <div class="coupon-functionality-toggle">
+                                                                        <div class="custom-switch-btn">
+                                                                           <label class="toggle">
+                                                                              <input class="toggle-checkbox"
+                                                                                 type="checkbox" checked="">
+                                                                              <div class="toggle-switch"></div>
+                                                                           </label>
+                                                                        </div>
+                                                                     </div>
+                                                                  </div>
+                                                                  <!-- item -->
+                                                                  <!-- item -->
+                                                                  <div
+                                                                     class="list-item d-flex justify-content-between align-items-center">
+                                                                     <div class="label d-flex">
+                                                                        <p>Valid only for new customers</p>
+                                                                        <span data-bs-toggle="tooltip"
+                                                                           data-bs-placement="top"
+                                                                           data-bs-title="Information">
+                                                                           <i class="las la-question-circle"></i>
+                                                                        </span>
+                                                                     </div>
+                                                                     <div class="coupon-functionality-toggle">
+                                                                        <div class="custom-switch-btn">
+                                                                           <label class="toggle">
+                                                                              <input class="toggle-checkbox"
+                                                                                 type="checkbox" checked="">
+                                                                              <div class="toggle-switch"></div>
+                                                                           </label>
+                                                                        </div>
+                                                                     </div>
+                                                                  </div>
+                                                                  <!-- item -->
+                                                                  <!-- item -->
+                                                                  <div
+                                                                     class="list-item d-flex justify-content-between align-items-center">
+                                                                     <div class="label d-flex">
+                                                                        <p>Auto apply coupon</p>
+                                                                        <span data-bs-toggle="tooltip"
+                                                                           data-bs-placement="top"
+                                                                           data-bs-title="Information">
+                                                                           <i class="las la-question-circle"></i>
+                                                                        </span>
+                                                                     </div>
+                                                                     <div class="coupon-functionality-toggle">
+                                                                        <div class="custom-switch-btn">
+                                                                           <label class="toggle">
+                                                                              <input class="toggle-checkbox"
+                                                                                 type="checkbox" checked="">
+                                                                              <div class="toggle-switch"></div>
+                                                                           </label>
+                                                                        </div>
+                                                                     </div>
+                                                                  </div>
+                                                                  <!-- item -->
+                                                               </div>
+                                                            </div>
+                                                            <!-- form-input-col -->
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <!-- add-coupon-accordion-row -->
+                                    <!-- add-coupon-accordion-row -->
+                                    <div class="accordion-item" id="couponValidity">
+                                       <h2 class="accordion-header">
+                                          <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                             data-bs-target="#collapseFour">
+                                             Coupon validity
+                                          </button>
+                                       </h2>
+                                       <div id="collapseFour" class="accordion-collapse collapse show"
+                                          data-bs-parent="#addProductAccordion">
+                                          <div class="accordion-body">
+                                             <div class="add-product-form-holder">
+                                                <div class="add-product-form-row">
+                                                   <div class="holder">
+                                                      <div class="form-field-outer">
+                                                         <div class="form-row row">
+                                                            <!-- form-input-col -->
+                                                            <div class="col-12">
+                                                               <div class="coupon-duration-row row">
+                                                                  <div class="col-6">
+                                                                     <div class="input-field">
+                                                                        <label>From</label>
+                                                                        <div class="input-holder has-icon">
+                                                                           <input type="text"
+                                                                              class="form-control datepicker"
+                                                                              placeholder="Select date">
+                                                                           <span class="input-append-icon">
+                                                                              <i class="las la-calendar-alt"></i>
+                                                                           </span>
+                                                                        </div>
+                                                                     </div>
+                                                                  </div>
+                                                                  <div class="col-6">
+                                                                     <div class="input-field">
+                                                                        <label>Time</label>
+                                                                        <div class="input-holder has-icon">
+                                                                           <input type="text"
+                                                                              class="form-control timepicker"
+                                                                              placeholder="Select time">
+
+                                                                           <span class="input-append-icon">
+                                                                              <i class="las la-clock"></i>
+                                                                           </span>
+                                                                        </div>
+                                                                     </div>
+                                                                  </div>
+                                                               </div>
+                                                            </div>
+                                                            <!-- form-input-col -->
+                                                            <!-- coupon-end-date-checkbox -->
+                                                            <div class="coupon-end-date-checkbox">
+                                                               <div class="custom-checkbox-outer">
+                                                                  <label class="custom-checkbox-holder">
+                                                                     <input type="checkbox" class="custom-checkbox"
+                                                                        id="coupnEnd">
+                                                                     <span></span>
+                                                                     <em>Set an end date</em>
+                                                                  </label>
+                                                               </div>
+                                                            </div>
+                                                            <!-- coupon-end-date-checkbox -->
+                                                            <!-- form-input-col -->
+                                                            <div class="col-12">
+                                                               <div
+                                                                  class="coupon-duration-row coupon-end-duration-row row">
+                                                                  <div class="col-6">
+                                                                     <div class="input-field">
+                                                                        <label>From</label>
+                                                                        <div class="input-holder has-icon">
+                                                                           <input type="text"
+                                                                              class="form-control datepicker"
+                                                                              placeholder="Select date">
+                                                                           <span class="input-append-icon">
+                                                                              <i class="las la-calendar-alt"></i>
+                                                                           </span>
+                                                                        </div>
+                                                                     </div>
+                                                                  </div>
+                                                                  <div class="col-6">
+                                                                     <div class="input-field">
+                                                                        <label>Time</label>
+                                                                        <div class="input-holder has-icon">
+                                                                           <input type="text"
+                                                                              class="form-control timepicker"
+                                                                              placeholder="Select time">
+                                                                           <span class="input-append-icon">
+                                                                              <i class="las la-clock"></i>
+                                                                           </span>
+                                                                        </div>
+                                                                     </div>
+                                                                  </div>
+                                                               </div>
+                                                            </div>
+                                                            <!-- form-input-col -->
+                                                         </div>
+                                                      </div>
+                                                   </div>
+                                                </div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <!-- add-coupon-accordion-row -->
+                                 </div>
+                                 <div class="add-product-submit-btn text-right">
+                                    <button type="submit" class="btn btn-danger">Delete Coupon</button>
+                                    <button type="submit" class="btn btn-primary">Update Coupon</button>
+                                 </div>
+                              </form>
+                           </div>
+                        </div>
+                        <div class="col">
+                           <div class="data-scroll-menu-outer">
+                              <div class="title">
+                                 <p>Navigation Tab</p>
+                              </div>
+                              <div class="data-scroll-nav">
+                                 <a href="javascript:void(0);" data-scroll="couponOverview">Coupon overview</a>
+                                 <a href="javascript:void(0);" data-scroll="couponDetails"> Coupon details</a>
+                                 <a href="javascript:void(0);" data-scroll="couponFunctionality">Coupon
+                                    functionality</a>
+                                 <a href="javascript:void(0);" data-scroll="couponValidity">Coupon validity</a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- add-coupn -->
+               </div>
+            </div>
+         </div>
+         <!-- page-content -->
+      </div>
+      <!-- jquery-js -->
+      <script src="assets/js/jquery-3.2.1.min.js"></script>
+      <!-- Bootstrap-core-js-->
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/js/bootstrap-select.min.js"></script>
+      <!--plugins-js-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.3.0/swiper-bundle.min.js"></script>
+      <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+      <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+      <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+      <!-- custom-js -->
+      <script src="assets/js/template.js"></script>
+      <script src="assets/js/custom.js"></script>
+   </body>
+
+</html>

@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+        <meta name="author" content="">
+        <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon">
+        <link rel="icon" href="assets/images/favicon.png" type="image/x-icon">
+        <title>Printaboo</title>
+        <!-- Bootstrap-core-CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/css/bootstrap-select.min.css">
+        <!-- plugins-CSS -->
+        <link rel="stylesheet"
+            href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.3.0/swiper-bundle.css" />
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
+
+        <!-- Custom styles for this template -->
+        <link href="assets/css/custom.css" rel="stylesheet">
+        <link href="assets/css/responsive.css" rel="stylesheet">
+    </head>
+
+    <body class="admin-body-wrapper">
+        <!-- admin-header -->
+        <header class="admin-header position-fixed">
+            <div class="container p-0">
+                <div class="holder">
+                    <div class="header-data-left">
+                        <!-- header-title -->
+                        <div class="header-title-outer">
+                            <!-- header-back-btn -->
+                            <a href="javascript:void(0);" class="header-back-btn"><i class="las la-arrow-left"></i></a>
+                            <!-- header-back-btn -->
+                            <p>Add New Category</p>
+                        </div>
+                        <!-- header-title -->
+                    </div>
+                    <div class="header-data-right">
+                        <!-- header-right-action-btn -->
+                        <div class="header-right-action-btn-outer">
+                            <div class="action-item">
+                                <div class="help-btn">
+                                    <a href="">
+                                        <img src="assets/images/header-help-icon.svg" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- header-right-action-btn -->
+                        <!-- login-info -->
+                        <div class="user-login-info-outer">
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <div class="holder">
+                                        <div class="user-pic">
+                                            <img src="assets/images/admin-user-pic.svg" alt="">
+                                        </div>
+                                        <span>debasischakrabo</span>
+                                    </div>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- login-info -->
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- admin-header -->
+        <div class="main-wrapper">
+            <!-- sidebar -->
+            <site-sidebar></site-sidebar>
+            <!-- sidebar -->
+            <!-- page-content -->
+            <div class="page-content-wrapper" id="content">
+                <div class="container-fluid">
+                    <div class="page-content-data-wrapper">
+                        <!-- add-product -->
+                        <div class="add-product-wrapper">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="add-product-form-wrapper">
+                                        <form>
+                                            <div class="accordion addProductAccordion" id="addProductAccordion">
+                                                <!-- add-product-accordion-row -->
+                                                <div class="accordion-item" id="categoryInformation">
+                                                    <h2 class="accordion-header">
+                                                        <button class="accordion-button" type="button"
+                                                            data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                                            Information
+                                                        </button>
+                                                    </h2>
+                                                    <div id="collapseOne" class="accordion-collapse collapse show"
+                                                        data-bs-parent="#addProductAccordion">
+                                                        <div class="accordion-body">
+                                                            <div class="add-product-form-holder">
+                                                                <div class="add-product-form-row">
+                                                                    <div class="holder">
+                                                                        <div class="form-field-outer">
+                                                                            <div class="form-row row">
+                                                                                <!-- form-input-col -->
+                                                                                <div class="col-12">
+                                                                                    <div class="input-field">
+                                                                                        <label> Category Image
+                                                                                            <sup>*</sup></label>
+                                                                                        <div
+                                                                                            class="product-media-upload-holder">
+                                                                                            <div
+                                                                                                class="custom-file-uploader">
+                                                                                                <input type="file"
+                                                                                                    class="custom-file-input"
+                                                                                                    id="digitalProductFile">
+                                                                                                <label
+                                                                                                    class="custom-file-uploader-label active"
+                                                                                                    for="digitalProductFile">
+                                                                                                    <span
+                                                                                                        class="custom-file-uploader-label-name fileName">Add
+                                                                                                        image</span>
+                                                                                                    <em><i
+                                                                                                            class="las la-folder-open"></i></em>
+                                                                                                </label>
+                                                                                                <span
+                                                                                                    class="custom-file-uploader-label-action cancelIcon">
+                                                                                                    <i
+                                                                                                        class="las la-times"></i>
+                                                                                                </span>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <!-- form-input-col -->
+                                                                                <!-- form-input-col -->
+                                                                                <div class="col-12">
+                                                                                    <div class="input-field">
+                                                                                        <label> Category name
+                                                                                            <sup>*</sup></label>
+                                                                                        <div class="input-holder">
+                                                                                            <input type="text"
+                                                                                                class="form-control"
+                                                                                                placeholder="Enter product name">
+                                                                                        </div>
+                                                                                        <div class="make-sub-category">
+                                                                                            <div
+                                                                                                class="custom-checkbox-outer">
+                                                                                                <label
+                                                                                                    class="custom-checkbox-holder">
+                                                                                                    <input
+                                                                                                        type="checkbox"
+                                                                                                        class="custom-checkbox">
+                                                                                                    <span></span>
+                                                                                                    <em>Add as
+                                                                                                        subcategory</em>
+                                                                                                </label>
+                                                                                            </div>
+                                                                                        </div>
+
+                                                                                    </div>
+                                                                                </div>
+                                                                                <!-- form-input-col -->
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- add-product-accordion-row -->
+                                                <!-- add-product-accordion-row -->
+                                                <div class="accordion-item" id="categoryBanner">
+                                                    <h2 class="accordion-header">
+                                                        <button class="accordion-button" type="button"
+                                                            data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                                            Banner
+                                                        </button>
+                                                    </h2>
+                                                    <div id="collapseTwo" class="accordion-collapse collapse show"
+                                                        data-bs-parent="#addProductAccordion">
+                                                        <div class="accordion-body">
+                                                            <div class="add-product-form-holder">
+                                                                <div class="add-product-form-row">
+                                                                    <div class="holder">
+                                                                        <div class="form-field-outer">
+                                                                            <div class="form-row row">
+                                                                                <!-- form-input-col -->
+                                                                                <div class="col-12">
+                                                                                    <div class="input-field">
+                                                                                        <label> Add a category banner at
+                                                                                            the top of product
+                                                                                            listing.<sup>*</sup></label>
+
+                                                                                    </div>
+                                                                                </div>
+                                                                                <!-- form-input-col -->
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- add-product-accordion-row -->
+                                                <!-- add-product-accordion-row -->
+                                                <div class="accordion-item" id="categoryContent">
+                                                    <h2 class="accordion-header">
+                                                        <button class="accordion-button" type="button"
+                                                            data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                                                            Content
+                                                        </button>
+                                                    </h2>
+                                                    <div id="collapseThree" class="accordion-collapse collapse show"
+                                                        data-bs-parent="#addProductAccordion">
+                                                        <div class="accordion-body">
+                                                            <div class="add-product-form-holder">
+                                                                <div class="add-product-form-row">
+                                                                    <div class="holder">
+                                                                        <div class="form-field-outer">
+                                                                            <div class="form-row row">
+                                                                                <!-- form-input-col -->
+
+                                                                                <div class="col-12">
+                                                                                    <div
+                                                                                        class="input-field product-unit-field">
+                                                                                        <label> Category Heading and
+                                                                                            Description</label>
+                                                                                        <div
+                                                                                            class="product-description-editor">
+                                                                                            <img src="assets/images/duumy-description-pic.png"
+                                                                                                alt="">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <!-- form-input-col -->
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- add-product-accordion-row -->
+                                                <!-- add-product-accordion-row -->
+                                                <div class="accordion-item" id="dukanSeo">
+                                                    <h2 class="accordion-header">
+                                                        <button class="accordion-button" type="button"
+                                                            data-bs-toggle="collapse" data-bs-target="#collapseFour">
+                                                            Dukaan SEO
+                                                        </button>
+                                                    </h2>
+                                                    <div id="collapseFour" class="accordion-collapse collapse show"
+                                                        data-bs-parent="#addProductAccordion">
+                                                        <div class="accordion-body">
+                                                            <div class="add-product-form-holder">
+                                                                <div class="add-product-form-row">
+                                                                    <div class="holder">
+                                                                        <div class="form-field-outer">
+                                                                            <div class="form-row row">
+                                                                                <!-- form-input-col -->
+                                                                                <div class="col-12">
+                                                                                    <div class="input-field">
+                                                                                        <label> Title tag</label>
+                                                                                        <div class="input-holder">
+                                                                                            <input type="text"
+                                                                                                class="form-control"
+                                                                                                placeholder="Enter title tag">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="title-tag-notes">
+                                                                                        <a href="#">Generate title</a>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <!-- form-input-col -->
+                                                                                <div class="col-12">
+                                                                                    <div class="input-field">
+                                                                                        <label> Meta description
+                                                                                            tag</label>
+                                                                                        <div
+                                                                                            class="input-holder meta-decription-input">
+                                                                                            <textarea type="text"
+                                                                                                class="form-control"
+                                                                                                placeholder="Enter description"></textarea>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <div class="title-tag-notes">
+                                                                                        <a href="#">Generate meta
+                                                                                            description</a>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <!-- form-input-col -->
+                                                                                <div class="col-12">
+                                                                                    <div class="input-field">
+                                                                                        <label> Social sharing image
+                                                                                            preview</label>
+                                                                                    </div>
+                                                                                    <div
+                                                                                        class="social-sharing-col-outer">
+                                                                                        <div
+                                                                                            class="social-sharing-image-col">
+                                                                                            <div
+                                                                                                class="control-group file-upload">
+                                                                                                <div
+                                                                                                    class="image-box text-center">
+                                                                                                    <img src="" alt="">
+                                                                                                    <p>
+                                                                                                        <span><img
+                                                                                                                src="assets/images/image-upload.png"
+                                                                                                                alt=""></span>
+                                                                                                        Add image
+                                                                                                    </p>
+                                                                                                    <div
+                                                                                                        class="upload-notes">
+                                                                                                        <p>Recommended
+                                                                                                            size <span>(1200
+                                                                                                                x 628
+                                                                                                                px)</span>
+                                                                                                        </p>
+                                                                                                    </div>
+
+                                                                                                </div>
+                                                                                                <div class="controls"
+                                                                                                    style="display: none;">
+                                                                                                    <input type="file"
+                                                                                                        name="contact_image_1" />
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div
+                                                                                            class="social-sharing-meta-data-col">
+                                                                                            <div class="title">
+                                                                                                <p>Category Page Title
+                                                                                                </p>
+                                                                                            </div>
+                                                                                            <div class="value">
+                                                                                                <input type="text"
+                                                                                                    value="https://printaboo.com/categories//"
+                                                                                                    class="category-page-title">
+                                                                                                <input type="text"
+                                                                                                    value="Meta Description"
+                                                                                                    class="category-page-description">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <!-- form-input-col -->
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- add-product-accordion-row -->
+                                            </div>
+                                            <div class="add-product-submit-btn text-right">
+                                                <button type="submit" class="btn btn-primary">Add Category</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="data-scroll-menu-outer">
+                                        <div class="title">
+                                            <p>Navigation Tab</p>
+                                        </div>
+                                        <div class="data-scroll-nav">
+                                            <a href="javascript:void(0);"
+                                                data-scroll="categoryInformation">Information</a>
+                                            <a href="javascript:void(0);" data-scroll="categoryBanner"> Banner</a>
+                                            <a href="javascript:void(0);" data-scroll="categoryContent">Content</a>
+                                            <a href="javascript:void(0);" data-scroll="dukanSeo">Dukaan SEO</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- add-product -->
+                    </div>
+                </div>
+            </div>
+            <!-- page-content -->
+        </div>
+        <!-- jquery-js -->
+        <script src="assets/js/jquery-3.2.1.min.js"></script>
+        <!-- Bootstrap-core-js-->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta3/dist/js/bootstrap-select.min.js"></script>
+        <!--plugins-js-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.3.0/swiper-bundle.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+        <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+        <!-- custom-js -->
+        <script src="assets/js/template.js"></script>
+        <script src="assets/js/custom.js"></script>
+    </body>
+
+</html>
