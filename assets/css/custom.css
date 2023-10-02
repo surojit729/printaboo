@@ -572,7 +572,7 @@ input[type="number"]::-webkit-outer-spin-button {
 .input-field .form-control {
     height: 51px;
     font-size: 16px;
-    color: var(--Secondary-Color);
+    color: var(--Primary-Color);
     font-weight: 400;
     background-color: transparent;
     border-radius: 10px;
@@ -723,26 +723,21 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .input-field .bootstrap-select .dropdown-toggle::after {
-    border-top: 5px solid;
-    border-right: 5px solid transparent;
-    border-bottom: 0;
-    border-left: 5px solid transparent;
-    right: 10px;
     position: absolute;
-    top: 50%;
+    top: 55%;
     transform: translateY(-50%);
-}
-
-.input-field .dropdown-toggle::after {
-    border-top-color: var(--Secondary-Color) !important;
+    right: 10px;
+    border: 0 !important;
+    content: "\f107";
+    font-family: 'Line Awesome Free';
+    font-weight: 900;
+    color: var(--Secondary-Color);
+    line-height: 1;
+    font-size: 16px;
 }
 
 .input-field .dropup .dropdown-toggle::after {
-    border-top: 0;
-    border-right: 5px solid transparent;
-    border-bottom: 5px solid;
-    border-left: 5px solid transparent;
-    border-bottom-color: var(--Secondary-Color);
+    content: "\f106";
 }
 
 /* admin-css */
@@ -2872,7 +2867,7 @@ input[type="number"]::-webkit-outer-spin-button {
     top: 10px;
 }
 
-.category-header-data-outer .action-item {
+.category-header-data-outer .action-item:not(:last-child) {
     margin-right: 20px;
 }
 
@@ -2952,6 +2947,16 @@ input[type="number"]::-webkit-outer-spin-button {
     text-decoration-line: underline;
     background-color: transparent;
     padding: 0;
+}
+
+.table-date-select-box:not(:last-child) {
+    margin-right: 12px;
+}
+
+.table-date-select-box .select-field .bootstrap-select>.dropdown-toggle {
+    height: 40px;
+    line-height: 38px;
+    padding-right: 30px;
 }
 
 .category-table {
@@ -4296,4 +4301,16 @@ a.ui-button:active,
     100% {
         transform: rotate(360deg);
     }
+}
+
+.dataTables_filter,
+.dataTables_length {
+    display: none;
+}
+
+table.dataTable thead>tr>th.sorting_asc:before,
+table.dataTable thead>tr>th.sorting_desc:after,
+table.dataTable thead>tr>td.sorting_asc:before,
+table.dataTable thead>tr>td.sorting_desc:after {
+    opacity: 1;
 }

@@ -59,7 +59,12 @@ jQuery(document).ready(function () {
     jQuery(".sidebar-menu-outer .sub-menu").css("display", "none");
   })
   // Datatabel Initialization
-  new DataTable('#example');
+  var table = $('#example').DataTable();
+
+  $('.product-search-form-outer .form-control').on('keyup', function () {
+    table.search(this.value).draw();
+  });
+
   // Product list-grid view mode
   jQuery(".gridView").click(function () {
     if (jQuery(this).parents(".view-mode-btn-outer .listView").hasClass('active')) {
@@ -215,6 +220,8 @@ jQuery(document).ready(function () {
   });
 
 })
+
+
 
 
 
